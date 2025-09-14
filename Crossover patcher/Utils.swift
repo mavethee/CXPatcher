@@ -685,7 +685,7 @@ func localizedCXPatcherString(forKey key: String, value: String? = nil) -> Strin
 }
 
 func validate(input: String) -> Bool {
-    if(input.lowercased() == localizedCXPatcherString(forKey:"confirmationValue").lowercased()) {
+    if(input.lowercased().filter{!$0.isWhitespace} == localizedCXPatcherString(forKey:"confirmationValue").lowercased().filter{!$0.isWhitespace}) {
         return true
     }
     return false
